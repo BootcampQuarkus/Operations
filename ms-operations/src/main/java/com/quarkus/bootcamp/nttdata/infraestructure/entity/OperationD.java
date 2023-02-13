@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 public class OperationD extends PanacheEntity {
   protected Double amount;
   protected String description;
+  protected Long sourceAccount;
+  protected Long destinationAccount;
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "operationTypeId")
   protected OperationTypeD operationTypeD;

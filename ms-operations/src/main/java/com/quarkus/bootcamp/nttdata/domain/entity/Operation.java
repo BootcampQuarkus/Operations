@@ -10,6 +10,8 @@ public class Operation {
 
   protected Double amount;
   protected String description;
+  protected Long sourceAccount;
+  protected Long destinationAccount;
   protected OperationType operationType;
   protected Long operationTypeId;
 }
