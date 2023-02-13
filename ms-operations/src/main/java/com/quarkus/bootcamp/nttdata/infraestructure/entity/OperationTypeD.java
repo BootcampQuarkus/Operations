@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "operationType")
@@ -17,7 +17,7 @@ import java.util.Set;
 public class OperationTypeD extends PanacheEntity {
   protected String name;
   @OneToMany(mappedBy = "operationTypeD", orphanRemoval = true)
-  protected Set<OperationD> operationD;
+  protected List<OperationD> operationDs;
   @Column(nullable = true)
   protected String createdAt = null;
   /**
