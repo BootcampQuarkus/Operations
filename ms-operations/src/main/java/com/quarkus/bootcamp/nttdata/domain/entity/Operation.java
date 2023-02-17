@@ -14,4 +14,5 @@ public class Operation {
   protected Long destinationAccount;
   protected OperationType operationType;
   protected Long operationTypeId;
+  protected String date;
 }

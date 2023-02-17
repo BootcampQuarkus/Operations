@@ -25,6 +25,7 @@ public class OperationMapper implements IOperationMapper {
     operation.setDescription(operationD.getDescription());
     operation.setSourceAccount(operationD.getSourceAccount());
     operation.setDestinationAccount(operationD.getDestinationAccount());
+    operation.setDate(operationD.getCreatedAt());
     // operation.setOperationTypeId(operationD.getOperationTypeD().id);
     return operation;
   }
