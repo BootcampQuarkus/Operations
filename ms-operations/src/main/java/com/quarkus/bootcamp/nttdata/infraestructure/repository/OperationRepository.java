@@ -1,6 +1,7 @@
 package com.quarkus.bootcamp.nttdata.infraestructure.repository;
 
-import com.quarkus.bootcamp.nttdata.infraestructure.entity.OperationD;
+import com.quarkus.bootcamp.nttdata.infraestructure.entity.operation.OperationD;
+import io.quarkus.panache.common.Sort;
 import jakarta.enterprise.context.ApplicationScoped;
 
 import java.time.ZoneId;
@@ -13,7 +14,7 @@ import java.util.Optional;
 public class OperationRepository implements IRepository<OperationD> {
   @Override
   public List<OperationD> getAll() {
-    return OperationD.listAll();
+    return OperationD.listAll(Sort.by("id"));
   }
 
   @Override

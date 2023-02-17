@@ -9,6 +9,8 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+import java.util.List;
+
 @Path("/operation")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
@@ -17,21 +19,45 @@ public class OperationResource {
   OperationService service;
 
   @GET
+  public Response getAll(@QueryParam("accountId") Long accountId) {
+    List<Operation> operationList = service.getAll();
+    if( accountId != null )
+      operationList = operationList.stream()
+            .filter(p -> ( p.getSourceAccount() == accountId || p.getDestinationAccount() == accountId ))
+            .toList();
+    return Response.ok(operationList).build();
+  }
+  @GET
   @Path("/deposit")
-  public Response getAllDeposit() {
-    return Response.ok(service.getAllByType("Deposit")).build();
+  public Response getAllDeposit(@QueryParam("accountId") Long accountId) {
+    List<Operation> operationList = service.getAllByType("Deposit");
+    if( accountId != null )
+      operationList = operationList.stream()
+            .filter(p -> ( p.getSourceAccount() == accountId || p.getDestinationAccount() == accountId ))
+            .toList();
+    return Response.ok(operationList).build();
   }
 
   @GET
   @Path("/withdrawal")
-  public Response getAllWithdrawal() {
-    return Response.ok(service.getAllByType("Withdrawal")).build();
+  public Response getAllWithdrawal(@QueryParam("accountId") Long accountId) {
+    List<Operation> operationList = service.getAllByType("Withdrawal");
+    if( accountId != null )
+      operationList = operationList.stream()
+            .filter(p -> ( p.getSourceAccount() == accountId || p.getDestinationAccount() == accountId ))
+            .toList();
+    return Response.ok(operationList).build();
   }
 
   @GET
   @Path("/transfer")
-  public Response getAllTransfer() {
-    return Response.ok(service.getAllByType("Transfer")).build();
+  public Response getAllTransfer(@QueryParam("accountId") Long accountId) {
+    List<Operation> operationList = service.getAllByType("Transfer");
+    if( accountId != null )
+      operationList = operationList.stream()
+            .filter(p -> ( p.getSourceAccount() == accountId || p.getDestinationAccount() == accountId ))
+            .toList();
+    return Response.ok(operationList).build();
   }
 
   @POST

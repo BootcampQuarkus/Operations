@@ -1,6 +1,6 @@
 package com.quarkus.bootcamp.nttdata.infraestructure.Resources;
 
-import com.quarkus.bootcamp.nttdata.infraestructure.entity.LineOfCreditD;
+import com.quarkus.bootcamp.nttdata.infraestructure.entity.product.LineOfCreditD;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
