@@ -3,7 +3,7 @@ package com.quarkus.bootcamp.nttdata.domain.services;
 import com.quarkus.bootcamp.nttdata.domain.entity.OperationType;
 import com.quarkus.bootcamp.nttdata.domain.interfaces.IService;
 import com.quarkus.bootcamp.nttdata.domain.mapper.OperationTypeMapper;
-import com.quarkus.bootcamp.nttdata.infraestructure.entity.OperationTypeD;
+import com.quarkus.bootcamp.nttdata.infraestructure.entity.operation.OperationTypeD;
 import com.quarkus.bootcamp.nttdata.infraestructure.repository.OperationTypeRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;

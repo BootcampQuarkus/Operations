@@ -1,4 +1,4 @@
-package com.quarkus.bootcamp.nttdata.infraestructure.entity;
+package com.quarkus.bootcamp.nttdata.infraestructure.entity.operation;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.*;

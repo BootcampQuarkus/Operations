@@ -2,7 +2,7 @@ package com.quarkus.bootcamp.nttdata.domain.mapper;
 
 import com.quarkus.bootcamp.nttdata.domain.entity.Operation;
 import com.quarkus.bootcamp.nttdata.domain.interfaces.mapper.IOperationMapper;
-import com.quarkus.bootcamp.nttdata.infraestructure.entity.OperationD;
+import com.quarkus.bootcamp.nttdata.infraestructure.entity.operation.OperationD;
 import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped

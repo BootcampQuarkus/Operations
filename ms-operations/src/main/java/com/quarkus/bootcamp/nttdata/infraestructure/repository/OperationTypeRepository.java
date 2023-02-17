@@ -1,6 +1,6 @@
 package com.quarkus.bootcamp.nttdata.infraestructure.repository;
 
-import com.quarkus.bootcamp.nttdata.infraestructure.entity.OperationTypeD;
+import com.quarkus.bootcamp.nttdata.infraestructure.entity.operation.OperationTypeD;
 import jakarta.enterprise.context.ApplicationScoped;
 
 import java.time.ZoneId;

@@ -1,6 +1,6 @@
 package com.quarkus.bootcamp.nttdata.infraestructure.Resources;
 
-import com.quarkus.bootcamp.nttdata.infraestructure.entity.AccountD;
+import com.quarkus.bootcamp.nttdata.infraestructure.entity.product.AccountD;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
