@@ -1,16 +1,13 @@
 package com.quarkus.bootcamp.nttdata.domain.services;
 
 import com.quarkus.bootcamp.nttdata.domain.Exceptions.AccountNotFoundException;
-import com.quarkus.bootcamp.nttdata.domain.Exceptions.LineOfCreditNotFoundException;
 import com.quarkus.bootcamp.nttdata.domain.entity.Operation;
 import com.quarkus.bootcamp.nttdata.domain.mapper.OperationMapper;
 import com.quarkus.bootcamp.nttdata.domain.mapper.OperationTypeMapper;
 import com.quarkus.bootcamp.nttdata.infraestructure.Resources.IAccountApi;
-import com.quarkus.bootcamp.nttdata.infraestructure.Resources.ILineOfCreditApi;
-import com.quarkus.bootcamp.nttdata.infraestructure.entity.product.AccountD;
-import com.quarkus.bootcamp.nttdata.infraestructure.entity.product.LineOfCreditD;
 import com.quarkus.bootcamp.nttdata.infraestructure.entity.operation.OperationD;
 import com.quarkus.bootcamp.nttdata.infraestructure.entity.operation.OperationTypeD;
+import com.quarkus.bootcamp.nttdata.infraestructure.entity.product.AccountD;
 import com.quarkus.bootcamp.nttdata.infraestructure.repository.OperationRepository;
 import com.quarkus.bootcamp.nttdata.infraestructure.repository.OperationTypeRepository;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -32,14 +29,12 @@ public class OperationService {
   OperationTypeMapper otMapper;
   @RestClient
   IAccountApi accountApi;
-  @RestClient
-  ILineOfCreditApi lineOfCreditApi;
 
   public Operation deposit(Operation operation) throws Exception {
     OperationD operationD = mapper.toDto(operation);
     OperationTypeD operationTypeD;
-      // Existe el tipo deposito
-      operationTypeD = otRepository.getById(operation.getOperationTypeId());
+    // Existe el tipo deposito
+    operationTypeD = otRepository.getById(operation.getOperationTypeId());
     if (!operationTypeD.getName().equals("Deposit")) {
       throw new NotFoundException();
     }
@@ -152,6 +147,7 @@ public class OperationService {
           })
           .toList();
   }
+
   public List<Operation> getAll() {
     return repository.getAll()
           .stream()
@@ -171,13 +167,5 @@ public class OperationService {
       throw new AccountNotFoundException("Account not found.");
     }
     return accountD;
-  }
-
-  public LineOfCreditD validateLineOfCreditD(Long productId) throws LineOfCreditNotFoundException {
-    LineOfCreditD lineOfCreditD = lineOfCreditApi.getById(productId);
-    if (lineOfCreditD.getId() == null) {
-      throw new LineOfCreditNotFoundException("LineOfCredit not found.");
-    }
-    return lineOfCreditD;
   }
 }

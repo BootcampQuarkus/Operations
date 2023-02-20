@@ -21,19 +21,20 @@ public class OperationResource {
   @GET
   public Response getAll(@QueryParam("accountId") Long accountId) {
     List<Operation> operationList = service.getAll();
-    if( accountId != null )
+    if (accountId != null)
       operationList = operationList.stream()
-            .filter(p -> ( p.getSourceAccount() == accountId || p.getDestinationAccount() == accountId ))
+            .filter(p -> (p.getSourceAccount() == accountId || p.getDestinationAccount() == accountId))
             .toList();
     return Response.ok(operationList).build();
   }
+
   @GET
   @Path("/deposit")
   public Response getAllDeposit(@QueryParam("accountId") Long accountId) {
     List<Operation> operationList = service.getAllByType("Deposit");
-    if( accountId != null )
+    if (accountId != null)
       operationList = operationList.stream()
-            .filter(p -> ( p.getSourceAccount() == accountId || p.getDestinationAccount() == accountId ))
+            .filter(p -> (p.getSourceAccount() == accountId || p.getDestinationAccount() == accountId))
             .toList();
     return Response.ok(operationList).build();
   }
@@ -42,9 +43,9 @@ public class OperationResource {
   @Path("/withdrawal")
   public Response getAllWithdrawal(@QueryParam("accountId") Long accountId) {
     List<Operation> operationList = service.getAllByType("Withdrawal");
-    if( accountId != null )
+    if (accountId != null)
       operationList = operationList.stream()
-            .filter(p -> ( p.getSourceAccount() == accountId || p.getDestinationAccount() == accountId ))
+            .filter(p -> (p.getSourceAccount() == accountId || p.getDestinationAccount() == accountId))
             .toList();
     return Response.ok(operationList).build();
   }
@@ -53,9 +54,9 @@ public class OperationResource {
   @Path("/transfer")
   public Response getAllTransfer(@QueryParam("accountId") Long accountId) {
     List<Operation> operationList = service.getAllByType("Transfer");
-    if( accountId != null )
+    if (accountId != null)
       operationList = operationList.stream()
-            .filter(p -> ( p.getSourceAccount() == accountId || p.getDestinationAccount() == accountId ))
+            .filter(p -> (p.getSourceAccount() == accountId || p.getDestinationAccount() == accountId))
             .toList();
     return Response.ok(operationList).build();
   }
